@@ -1,16 +1,14 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
 # Load data
-data = pd.read_csv("social_media_usage.csv")
+try:
+    data = pd.read_csv("social_media_usage.csv")
+except FileNotFoundError:
+    print("Error: The file 'social_media_usage.csv' was not found. Please ensure the file is in the correct directory.")
+    exit()
 
 # Helper function to clean binary columns
 def clean_binary_column(column, positive_value):
@@ -56,4 +54,5 @@ probabilities = model.predict_proba(individuals)[:, 1]
 # Display results
 for i, age in enumerate(individuals['age']):
     print(f"Probability of LinkedIn usage (age {age}): {probabilities[i]:.2f}")
+
 
