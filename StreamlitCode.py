@@ -1,14 +1,13 @@
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection 
+import train_test_split
+from sklearn.linear_model 
+import LogisticRegression
 
 # Load data
 try:
     data = pd.read_csv("social_media_usage.csv")
-except FileNotFoundError:
-    print("Error: The file 'social_media_usage.csv' was not found. Please ensure the file is in the correct directory.")
-    exit()
 
 # Helper function to clean binary columns
 def clean_binary_column(column, positive_value):
